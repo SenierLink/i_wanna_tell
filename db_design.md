@@ -7,8 +7,8 @@
 		content varchar(300) not null,
 		message_kind varchar(15),
 		create_time timestamp not null DEFAULT CURRENT_TIMESTAMP,
-		agree_num int(5),
-		browse_num int(6),
+		agree_num int(5) DEFAULT 0,
+		browse_num int(6) DEFAULT 0,
 		author_id varchar(20),
 		id int(5) auto_increment not null,
 		primary key(id)
