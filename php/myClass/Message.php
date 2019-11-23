@@ -1,5 +1,5 @@
 <?php
-namespace \App\myClass\Message;
+namespace App\myClass;
 
 /**
  * Class Message

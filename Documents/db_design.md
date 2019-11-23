@@ -23,3 +23,7 @@
 	SELECT * FROM `message` WHERE to_days(create_time)=to_days(now())
 
 字段默认time就用timestamp。
+
+
+# 设计
+放弃使用mvc开发，使用单页面结合mc模式。

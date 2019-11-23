@@ -1,6 +1,7 @@
 <?php
-namespace \App\myClass\Messages;
+namespace App\myClass;
 
+use App\myClass\Message;
 /**
  * Class Messages
  * @package App\myClass\Messages
@@ -17,3 +18,4 @@ class Messages
 
 
 }
+

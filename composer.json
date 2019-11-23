@@ -1,0 +1,13 @@
+{
+    "name": "link/i_wanna_tell",
+    "authors": [
+        {
+            "name": "SenierLink",
+            "email": "1325181337@qq.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "App\\": "../php/"
+    }
+}
