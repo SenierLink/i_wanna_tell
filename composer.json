@@ -8,6 +8,8 @@
     ],
     "require": {},
     "autoload": {
-        "App\\": "../php/"
+        "psr-4": {
+            "App\\myClass\\": "./php/myClass/"
+        }
     }
 }
