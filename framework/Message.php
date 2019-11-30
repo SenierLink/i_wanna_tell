@@ -1,9 +1,8 @@
 <?php
-namespace App\myClass;
+namespace IWT\framework;
 
 /**
  * Class Message
- * @package App\myClass\Message
  * 数据结构用来储数据
  */
 class Message

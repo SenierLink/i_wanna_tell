@@ -1,7 +1,8 @@
 <?php
 
-use \App\myClass\MessageModule;
-require "../../vendor/autoload.php";
+use IWT\app\MessageModule;
+
+require "../vendor/autoload.php";
 //include("../class/MessageModule.php");
 
 

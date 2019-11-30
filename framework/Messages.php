@@ -1,10 +1,10 @@
 <?php
-namespace App\myClass;
+namespace IWT\framework;
 
-use App\myClass\Message;
+use IWT\framework\Message;
 /**
  * Class Messages
- * @package App\myClass\Messages
+ * @package IWT\framework\Messages
  */
 class Messages
 {

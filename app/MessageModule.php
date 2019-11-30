@@ -1,9 +1,9 @@
 <?php
 
-namespace App\myClass;
+namespace IWT\app;
 
-use App\myClass\Messages;
-use App\myClass\Message;
+use IWT\framework\Messages;
+use IWT\framework\Message;
 use \PDO;
 
 
@@ -22,7 +22,7 @@ class MessageModule
      *new mysqli对象
      * @param PDO $myPDO
      */
-    public function __construct(\PDO $myPDO)
+    public function __construct(PDO $myPDO)
     {
         // 依赖注入
         $this->myPDO = $myPDO;
@@ -30,15 +30,15 @@ class MessageModule
 
     /**
      * 向数据库添加messages，我觉得可以合并成一个。
-     * @param Message\Message $message
+     * @param Message $message
      */
-    public function addMessage(Message\Message $message){
+    public function addMessage(Message $message){
 
     }
-    public function addMessages(Messages\Messages $messages){
+    public function addMessages(Messages $messages){
 
     }
-    public function queryMessages($db, Message\Message $message){
+    public function queryMessages($db, Message $message){
 
     }
 
