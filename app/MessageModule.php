@@ -17,9 +17,9 @@ class MessageModule
     /** @var null  */
     private $dbname = null;
     protected $myPDO;
-    /**
+    private $sql_select_all = "SELECT * FROM message";
+        /**
      *构造函数
-     *new mysqli对象
      * @param PDO $myPDO
      */
     public function __construct(PDO $myPDO)
@@ -38,8 +38,16 @@ class MessageModule
     public function addMessages(Messages $messages){
 
     }
-    public function queryMessages($db, Message $message){
 
+    /**
+     *
+     * @echo void [{'title','content',}]]
+     */
+    public function queryAllMessages(){
+        $stmt = $this->myPDO->query($this->sql_select_all);
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
+
+        // 需要echo一个json，可以return数组，然后去用json对象
     }
 
     /**
