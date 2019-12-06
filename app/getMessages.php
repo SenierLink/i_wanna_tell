@@ -3,10 +3,14 @@
 use IWT\app\MessageModule;
 
 require "../vendor/autoload.php";
-require "./config/db.conf.php";
+$dbconfig = include "./config/db.conf.php";
+
+/**
+ * 请求后返回json数组。
+ */
 
 try {
-    $dbh = new \PDO($dsn, $user, $pass); //初始化一个PDO对象
+    $dbh = new \PDO($dbconfig['dsn'], $dbconfig['user'], $dbconfig['pass']); //初始化一个PDO对象
 //    echo "连接成功<br/>";
     /*你还可以进行一次搜索操作
     foreach ($dbh->query('SELECT * from FOO') as $row) {
