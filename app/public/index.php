@@ -1,13 +1,14 @@
 <?php
 
-use IWT\app\MessageModule as MessageModule;
 require "./testclass.php";
 require "../MessageModule.php";
 require "../../vendor/autoload.php";
 
 // 这一块好像是添加路由
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
-    $r->addRoute('GET', '/i_wanna_tell/app/public/index.php','testclass@testForRouter');
+    $r->addRoute('GET', '/i_wanna_tell/app/public/index.php','IWT\app\MessageModule@queryAllMessages');
+    $r->addRoute('GET', '/i_wanna_tell/app/public/index.php/test','testclass@testForRouter');
+
 });
 
 

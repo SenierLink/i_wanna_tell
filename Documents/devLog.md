@@ -42,3 +42,20 @@
 其中handle的实际调用在第三部分，这一部分需要自己实现，有点像autoload也需要自己实现。搞了一上午明白了人家的工作机制。垃圾文档真是怎么也看不懂。
 
 现在还没有解决控制器自动加载的问题，TF中给的方法不能很好地结合命名空间psr-4使用，基本上都是靠require，include去引入对象。如果不能解决可能会比较麻烦，但是小框架使用其实还好。
+
+
+
+## 2019/12/7 23:59
+
+### nikic/fastroute中call_user_func_array()方法处理handler的类需要完全限定.
+
+
+
+```php
+$r->addRoute('GET', '/i_wanna_tell/app/public/index.php','IWT\app\MessageModule@queryAllMessages');
+// 这样便不会报错
+    $r->addRoute('GET', '/i_wanna_tell/app/public/index.php','MessageModule@queryAllMessages');
+//这样会报错,除非把MessageModule的namespace换成\
+```
+
+应该是call_user_func_array()的问题，他应该是默认解析到\命名空间。

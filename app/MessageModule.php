@@ -22,10 +22,21 @@ class MessageModule
      *构造函数
      * @param PDO $myPDO
      */
-    public function __construct(PDO $myPDO)
+    public function __construct(PDO $myPDO = null)
     {
+
+//      $config = include "./config/db.conf.php";
+//      这样就报错，奇怪了
+
+        $dbconfig = include "config/db.conf.php";
+        var_dump($dbconfig);
+
         // 依赖注入
-        $this->myPDO = $myPDO;
+        if ($myPDO) {
+            $this->myPDO = $myPDO;
+        } else {
+            $this->myPDO = new PDO($dbconfig['dsn'], $dbconfig['user'], $dbconfig['pass']);
+        }
     }
 
     /**
@@ -64,7 +75,6 @@ class MessageModule
      */
     public function changeDbname($dbname){
         mysqli_query($this->myMysql,"");
-
     }
 }
 
