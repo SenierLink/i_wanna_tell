@@ -4,7 +4,7 @@
 namespace IWT\framework;
 
 
-class Module
+class Controller
 {
 
 }

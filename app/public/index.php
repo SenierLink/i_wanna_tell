@@ -6,7 +6,7 @@ require "../../vendor/autoload.php";
 
 // 这一块好像是添加路由
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
-    $r->addRoute('GET', '/i_wanna_tell/app/public/index.php','IWT\app\MessageModule@queryAllMessages');
+    $r->addRoute('GET', '/i_wanna_tell/app/public/index.php/message','IWT\app\MessageCon@queryAllMessages');
     $r->addRoute('GET', '/i_wanna_tell/app/public/index.php/test','testclass@testForRouter');
 
 });

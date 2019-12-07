@@ -4,6 +4,7 @@ namespace IWT\app;
 
 use IWT\framework\Messages;
 use IWT\framework\Message;
+use IWT\framework\Module;
 use \PDO;
 
 
@@ -75,6 +76,13 @@ class MessageModule
      */
     public function changeDbname($dbname){
         mysqli_query($this->myMysql,"");
+    }
+
+    function __destruct()
+    {
+        // TODO: Implement __destruct() method.
+        // 释放数据库连接，不知道这么做会不会带来频繁连接数据库。
+        $this->myPDO = null;
     }
 }
 
