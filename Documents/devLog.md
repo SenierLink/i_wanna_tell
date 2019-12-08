@@ -43,13 +43,9 @@
 
 现在还没有解决控制器自动加载的问题，TF中给的方法不能很好地结合命名空间psr-4使用，基本上都是靠require，include去引入对象。如果不能解决可能会比较麻烦，但是小框架使用其实还好。
 
-
-
 ## 2019/12/7 23:59
 
 ### nikic/fastroute中call_user_func_array()方法处理handler的类需要完全限定.
-
-
 
 ```php
 $r->addRoute('GET', '/i_wanna_tell/app/public/index.php','IWT\app\MessageModule@queryAllMessages');
@@ -59,3 +55,13 @@ $r->addRoute('GET', '/i_wanna_tell/app/public/index.php','IWT\app\MessageModule@
 ```
 
 应该是call_user_func_array()的问题，他应该是默认解析到\命名空间。
+
+
+
+### 2019-12-8 19:29:20
+
+### 不得不承认，我们应该学完设计模式以后来进行本次开发
+
+在目前理解中：框架 = 设计模式 + 约定 + 封装组件
+
+在这次开发中，我们主要是应当使用设计模式，但是设计模式的学习并没有跟上需求，所以写的时候，反复调整了很多次项目架构。

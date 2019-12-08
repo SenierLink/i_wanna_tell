@@ -15,11 +15,12 @@ use \PDO;
  */
 class MessageModule
 {
-    /** @var null  */
+    /** @var null */
     private $dbname = null;
     protected $myPDO;
     private $sql_select_all = "SELECT * FROM message";
-        /**
+
+    /**
      *构造函数
      * @param PDO $myPDO
      */
@@ -28,9 +29,7 @@ class MessageModule
 
 //      $config = include "./config/db.conf.php";
 //      这样就报错，奇怪了
-
         $dbconfig = include "config/db.conf.php";
-        var_dump($dbconfig);
 
         // 依赖注入
         if ($myPDO) {
@@ -44,22 +43,38 @@ class MessageModule
      * 向数据库添加messages，我觉得可以合并成一个。
      * @param Message $message
      */
-    public function addMessage(Message $message){
+    public function addMessage(Message $message)
+    {
 
     }
-    public function addMessages(Messages $messages){
 
+
+    /**
+     * 查询返回，返回Message对象
+     * 其实这里用一个迭代器才是最好的办法，但是我不想做了，如果需要优化，可以把这个换成一个迭代器，节约更多内存。下一次同类型需求的时候再用迭代器叭。
+     * @return array [Message, ...Message]
+     */
+    public function queryAllMessages()
+    {
+        $message_arr = [];
+        $stmt = $this->myPDO->query($this->sql_select_all);
+        while ($item = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($message_arr, new Message($item));
+        }
+        var_dump($message_arr);
+        return $message_arr;
+
+
+        // 需要echo一个json，可以return数组，然后去用json对象
     }
 
     /**
-     *
-     * @echo void [{'title','content',}]]
+     * 根据message_id返回message对象。
+     * @param $message_id
      */
-    public function queryAllMessages(){
-        $stmt = $this->myPDO->query($this->sql_select_all);
-        return $stmt->fetchAll(PDO::FETCH_CLASS);
+    public function getMessageById($message_id)
+    {
 
-        // 需要echo一个json，可以return数组，然后去用json对象
     }
 
     /**
@@ -69,13 +84,15 @@ class MessageModule
     {
         return $this->dbname;
     }
+
     /**
      * 修改database table 选择
      * @param $dbname 新的database table name
      * @example
      */
-    public function changeDbname($dbname){
-        mysqli_query($this->myMysql,"");
+    public function changeDbname($dbname)
+    {
+        mysqli_query($this->myMysql, "");
     }
 
     function __destruct()

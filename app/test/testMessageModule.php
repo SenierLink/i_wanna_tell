@@ -13,4 +13,5 @@ foreach ($dbh->query('SELECT * from FOO') as $row) {
     print_r($row); //你可以用 echo($GLOBAL); 来看到这些值
 }
 */
-new MessageModule($dbh);
+$test = new MessageModule($dbh);
+$test->queryAllMessages();

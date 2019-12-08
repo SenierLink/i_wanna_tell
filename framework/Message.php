@@ -4,6 +4,7 @@ namespace IWT\framework;
 /**
  * Class Message
  * 数据结构用来储数据
+ * 并不属于框架，但也不属于逻辑，由于历史原因，放在了框架里面 2019-12-8 20:28:00
  */
 class Message
 {
@@ -29,6 +30,10 @@ class Message
         $this->browse_num=$arr['browse_num'];
         $this->author_id=$arr['author_id'];
         $this->id=$arr['id'];
+    }
+
+    public function toJson(){
+        var_dump(json_encode($this));
     }
 
 }
