@@ -8,14 +8,17 @@ namespace IWT\framework;
  */
 class Message
 {
-    private $title = null;
-    private $content = null;
-    private $message_kind = null;
-    private $create_time = null;
-    private $agree_num = null;
-    private $browse_num = null;
-    private $author_id = null;
-    private $id = null;
+    /**
+     * public方便修改，暴露出来算了。
+     */
+    public $title = null;
+    public $content = null;
+    public $message_kind = null;
+    public $create_time = null;
+    public $agree_num = null;
+    public $browse_num = null;
+    public $author_id = null;
+    public $id = null;
 
     /**
      * @param $arr mysqli_result对象， 解析出来每一个信息，可以说是序列化成对象
@@ -33,7 +36,7 @@ class Message
     }
 
     public function toJson(){
-        var_dump(json_encode($this));
+        return json_encode($this);
     }
 
 }

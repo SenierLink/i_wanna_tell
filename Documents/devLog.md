@@ -56,8 +56,6 @@ $r->addRoute('GET', '/i_wanna_tell/app/public/index.php','IWT\app\MessageModule@
 
 应该是call_user_func_array()的问题，他应该是默认解析到\命名空间。
 
-
-
 ### 2019-12-8 19:29:20
 
 ### 不得不承认，我们应该学完设计模式以后来进行本次开发
@@ -65,3 +63,17 @@ $r->addRoute('GET', '/i_wanna_tell/app/public/index.php','IWT\app\MessageModule@
 在目前理解中：框架 = 设计模式 + 约定 + 封装组件
 
 在这次开发中，我们主要是应当使用设计模式，但是设计模式的学习并没有跟上需求，所以写的时候，反复调整了很多次项目架构。
+
+
+
+
+
+### 2019-12-8 21:25:57
+
+### 下一次应该接着去写json格式
+
+~~完成json格式问题，~~完成了！就可以去写addmessage。初步想的用post传一个arr到后台，而后把arr转成一个message，再由controller调用module的store方法。
+
+于是，至此get add完成。
+
+然后就是去把get的算法好好优化，比如只响应X天内的message，后台服务器需要运行脚本，自动清除过期message

@@ -18,8 +18,9 @@ $arr =array(
 );
 
 $test = new Message($arr);
-$test->toJson();
+$test = $test->toJson();
 
 var_dump($test);
-
+print_r($test);
 // toJson 返回的格式好像不太好，但是有点样子了。
+// 2019-12-8 22:04:12 解决了。
