@@ -15,7 +15,7 @@ class MessageCon extends Controller
      * 这里需要重写，query方法返回的对象变成了数组。
      * @param $messageid
      */
-    public function queryAllMessages($messageid){
+    public function queryAllMessages($messageid = null){
         $tempdb = new MessageModule();
 
         if ($messageid){
