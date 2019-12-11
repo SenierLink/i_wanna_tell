@@ -43,9 +43,10 @@ class MessageModule
      * 向数据库添加messages，我觉得可以合并成一个。
      * @param Message $message
      */
-    public function addMessage(Message $message)
+    public function storeMessage(Message $message)
     {
-
+        $sql = "INSERT INTO i_wanna_tell (title, message_kind, content, create_time, author_id, id)";
+        $this->myPDO->prepare();
     }
 
 

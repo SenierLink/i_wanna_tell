@@ -77,3 +77,36 @@ $r->addRoute('GET', '/i_wanna_tell/app/public/index.php','IWT\app\MessageModule@
 于是，至此get add完成。
 
 然后就是去把get的算法好好优化，比如只响应X天内的message，后台服务器需要运行脚本，自动清除过期message
+
+<img title="" src="C:\Users\Link\AppData\Roaming\marktext\images\2019-12-11-13-01-30-image.png" alt="" data-align="center" width="405">
+
+
+
+### 2019-12-11 14:20:55
+
+### 发现一个好玩的require用法。
+
+require到一个字符串，字符串内部
+
+
+
+```php
+// config.php
+$arr = [];
+$test="321";
+$arr['insert_message'] = "";
+$arr['test'] = "$test";
+
+
+return $arr;
+```
+
+```php
+$test = "123";
+$db_sql = require "config/db_sql.conf.php";
+var_dump($db_sql);
+```
+
+结果会是321，也就是arr['test']字符串中的\$test解析出来了。但是如果config.php中没有\$test，就会使用require环境中的\$test来渲染。非常好的功能。
+
+但是思考以后，还是把sql模板放在对应的方法中比较好，起码便于修改，不然参数在方法中，命令在config中也不是什么好事情。
