@@ -29,8 +29,11 @@ class MessageCon extends Controller
         echo $temp;
     }
 
-    public function addMessage($arr){
-        $mess = new Message($arr);
+    /**
+     * @param String
+     */
+    public function addMessage($str){
+        $mess = new Message($str);
     }
 
 }

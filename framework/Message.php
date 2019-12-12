@@ -15,6 +15,7 @@ class Message
      * public方便修改，暴露出来算了。
      *
      * 感覺public对browse_num这种封闭，不该被用户修改的数据不好。2019-12-11 14:40:14
+     * 是需要这样的，方便MessageModule的insert书写。
      */
     public $title = null;
     public $content = null;
@@ -52,7 +53,7 @@ class Message
     public function store()
     {
         $mes_module = new MessageModule();
-        $mes_module->storeMessage($this->init_arr);
+        $mes_module->storeMessage($this);
     }
 
     public function toString()
