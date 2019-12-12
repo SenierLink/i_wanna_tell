@@ -18,7 +18,7 @@ class MessageModule
     /** @var null */
     private $dbname = null;
     protected $myPDO;
-    private $sql_select_all = "SELECT * FROM message";
+    private $sql_select_all = "SELECT * FROM message;";
 
     /**
      *构造函数
@@ -42,9 +42,20 @@ class MessageModule
     /**
      * 向数据库添加messages，我觉得可以合并成一个。
      * @param Message $message
+     * @return bool 是否添加成功
      */
-    public function addMessage(Message $message)
+    public function storeMessage(Message $message)
     {
+//      bug在于，这里面传值以后两边没有''.
+//      $sql = "INSERT INTO message (title, message_kind, content, author_id) VALUES ($message->title, $message->message_kind, $message->content, $message->author_id)";
+        $sql = "INSERT INTO message (title, message_kind, content, author_id) VALUES (:title, :message_kind, :content, :author_id)";
+        try {
+            $sth = $this->myPDO->prepare($sql);
+            $is_success =  $sth->execute(array(':title' => $message->title, ':message_kind' => $message->message_kind, ':content' => $message->content, ':author_id' => $message->author_id,));
+            return $is_success;
+        } catch (Exception $e) {
+            return false;
+        }
 
     }
 
@@ -61,7 +72,6 @@ class MessageModule
         while ($item = $stmt->fetch(PDO::FETCH_ASSOC)) {
             array_push($message_arr, new Message($item));
         }
-        var_dump($message_arr);
         return $message_arr;
 
 

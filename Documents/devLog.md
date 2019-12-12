@@ -64,10 +64,6 @@ $r->addRoute('GET', '/i_wanna_tell/app/public/index.php','IWT\app\MessageModule@
 
 在这次开发中，我们主要是应当使用设计模式，但是设计模式的学习并没有跟上需求，所以写的时候，反复调整了很多次项目架构。
 
-
-
-
-
 ### 2019-12-8 21:25:57
 
 ### 下一次应该接着去写json格式
@@ -77,3 +73,58 @@ $r->addRoute('GET', '/i_wanna_tell/app/public/index.php','IWT\app\MessageModule@
 于是，至此get add完成。
 
 然后就是去把get的算法好好优化，比如只响应X天内的message，后台服务器需要运行脚本，自动清除过期message
+
+<img title="" src="C:\Users\Link\AppData\Roaming\marktext\images\2019-12-11-13-01-30-image.png" alt="" data-align="center" width="405">
+
+### 2019-12-11 14:20:55
+
+### 发现一个好玩的require用法。
+
+require到一个字符串，字符串内部
+
+```php
+// config.php
+$arr = [];
+$test="321";
+$arr['insert_message'] = "";
+$arr['test'] = "$test";
+
+
+return $arr;
+```
+
+```php
+$test = "123";
+$db_sql = require "config/db_sql.conf.php";
+var_dump($db_sql);
+```
+
+结果会是321，也就是arr['test']字符串中的\$test解析出来了。但是如果config.php中没有\$test，就会使用require环境中的\$test来渲染。非常好的功能。
+
+但是思考以后，还是把sql模板放在对应的方法中比较好，起码便于修改，不然参数在方法中，命令在config中也不是什么好事情。
+
+
+
+### 2019-12-12 09:22:37
+
+### debug for sql
+
+```php
+    /**
+     * 向数据库添加messages，我觉得可以合并成一个。
+     * @param Message $message
+     */
+    public function storeMessage(Message $message)
+    {
+//      bug在于，这里面传值以后两边没有''.
+//      $sql = "INSERT INTO message (title, message_kind, content, author_id) VALUES ($message->title, $message->message_kind, $message->content, $message->author_id)";
+        $sql = "INSERT INTO message (title, message_kind, content, author_id) VALUES (:title, :message_kind, :content, :author_id)";
+        try {
+            $sth = $this->myPDO->prepare($sql);
+            $sth->execute(array(':title' => $message->title, ':message_kind' => $message->message_kind, ':content' => $message->content, ':author_id' => $message->author_id,));
+        } catch (Exception $e) {
+            print_r($e);
+        }
+
+    }
+```

@@ -1,5 +1,8 @@
 <?php
+
 namespace IWT\framework;
+
+use IWT\app\MessageModule;
 
 /**
  * Class Message
@@ -10,6 +13,9 @@ class Message
 {
     /**
      * public方便修改，暴露出来算了。
+     *
+     * 感覺public对browse_num这种封闭，不该被用户修改的数据不好。2019-12-11 14:40:14
+     * 是需要这样的，方便MessageModule的insert书写。
      */
     public $title = null;
     public $content = null;
@@ -20,23 +26,43 @@ class Message
     public $author_id = null;
     public $id = null;
 
+    private $init_arr = [];
+
     /**
      * @param $arr mysqli_result对象， 解析出来每一个信息，可以说是序列化成对象
      * @return void
      */
-    public function __construct($arr){
-        $this->title=$arr['title'];
-        $this->message_kind=$arr['message_kind'];
-        $this->content=$arr['content'];
-        $this->create_time=$arr['create_time'];
-        $this->agree_num=$arr['agree_num'];
-        $this->browse_num=$arr['browse_num'];
-        $this->author_id=$arr['author_id'];
-        $this->id=$arr['id'];
+    public function __construct($arr)
+    {
+        $this->init_arr = $arr;
+        $this->title = $arr['title'];
+        $this->message_kind = $arr['message_kind'];
+        $this->content = $arr['content'];
+        $this->create_time = $arr['create_time'];
+        $this->agree_num = $arr['agree_num'];
+        $this->browse_num = $arr['browse_num'];
+        $this->author_id = $arr['author_id'];
+        $this->id = $arr['id'];
     }
 
-    public function toJson(){
-        return json_encode($this);
+    public function toJson()
+    {
+        return json_encode($this->init_arr);
+    }
+
+    public function store()
+    {
+        $mes_module = new MessageModule();
+        $mes_module->storeMessage($this);
+    }
+
+    public function toString()
+    {
+        $str = "";
+        foreach ($this->init_arr as $item) {
+            $str = $str . $item;
+        }
+        print_r($str);
     }
 
 }
