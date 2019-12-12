@@ -8,7 +8,7 @@ require "../../vendor/autoload.php";
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/i_wanna_tell/app/public/index.php/message[/{messageid:d+}]','IWT\app\MessageCon@queryAllMessages');
     $r->addRoute('GET', '/i_wanna_tell/app/public/index.php/message/add/{name}','IWT\app\MessageCon@addMessage');
-
+    $r->addRoute('POST', '/i_wanna_tell/app/public/index.php/message/add', 'IWT\app\MessageCon@addMessage');
 });
 
 

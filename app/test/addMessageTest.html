@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addMessageTest</title>
+</head>
+<body>
+<button id="mybutton">
+    添加信息
+</button>
+
+<script>
+    var mybutton = document.getElementById('mybutton');
+    mybutton.addEventListener("click", postMessage)
+    function postMessage() {
+        var request = new XMLHttpRequest();
+
+        var post = {
+            title:"testPOST",
+            message_kind: "test",
+            content:"testcontent",
+            author_id:"link"
+        }
+        post = JSON.stringify(post)
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status >200 && request.status < 400){
+                console.log("success")
+            } else {
+                console.log("faild")
+            }
+        }
+
+        request.open('POST', 'http://localhost/i_wanna_tell/app/public/index.php/message/add');
+
+        request.send(post)
+
+
+    }
+
+
+</script>
+</body>
+</html>

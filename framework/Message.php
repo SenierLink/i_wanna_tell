@@ -65,4 +65,21 @@ class Message
         print_r($str);
     }
 
+    /**
+     * @param $str_json POST 方法传来的str_json
+     */
+    public function deToJson($str_json)
+    {
+        $str_json = json_decode($str_json);
+        $arr = $str_json;
+        $this->init_arr = $arr;
+        $this->title = $arr['title'];
+        $this->message_kind = $arr['message_kind'];
+        $this->content = $arr['content'];
+        $this->create_time = $arr['create_time'];
+        $this->agree_num = $arr['agree_num'];
+        $this->browse_num = $arr['browse_num'];
+        $this->author_id = $arr['author_id'];
+        $this->id = $arr['id'];
+    }
 }
