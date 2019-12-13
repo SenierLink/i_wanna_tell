@@ -17,16 +17,17 @@ class Message
      * 感覺public对browse_num这种封闭，不该被用户修改的数据不好。2019-12-11 14:40:14
      * 是需要这样的，方便MessageModule的insert书写。
      */
-    public $title = null;
-    public $content = null;
-    public $message_kind = null;
-    public $create_time = null;
-    public $agree_num = null;
-    public $browse_num = null;
-    public $author_id = null;
-    public $id = null;
 
-    private $init_arr = [];
+    private $init_arr = [
+        'title' => null,
+        'content' => null,
+        'message_kind' => null,
+        'create_time' => null,
+        'agree_num' => null,
+        'browse_num' => null,
+        'author_id' => null,
+        'id' => null,
+    ];
 
     /**
      * @param $arr mysqli_result对象， 解析出来每一个信息，可以说是序列化成对象
@@ -34,15 +35,13 @@ class Message
      */
     public function __construct($arr)
     {
-        $this->init_arr = $arr;
-        $this->title = $arr['title'];
-        $this->message_kind = $arr['message_kind'];
-        $this->content = $arr['content'];
-        $this->create_time = $arr['create_time'];
-        $this->agree_num = $arr['agree_num'];
-        $this->browse_num = $arr['browse_num'];
-        $this->author_id = $arr['author_id'];
-        $this->id = $arr['id'];
+        foreach ($arr as $item => $value) {
+            if ($arr["$item"]){
+                $this->init_arr["$item"] = $value;
+            }
+        }
+        var_dump($this->init_arr);
+
     }
 
     public function toJson()

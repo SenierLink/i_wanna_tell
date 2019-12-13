@@ -53,13 +53,11 @@ class MessageCon extends Controller
 
 // 好像是跨文件的哦这个。
         $input = file_get_contents('php://input');
-        var_dump($input);
         $json = json_decode($input);
-        var_dump($json);
         // $json 是一个对象。需要变成数组才好。或者写个接口，让message构造函数的参数是一个对象，可以是数组，可以是对象。但是，php数组好像不是对象。问题不大。直接在这对象变数组把。
-        print_r($json->title);
-
         var_dump((array) $json);
+
+        $str = (array) $json;
 
         $mess = new Message($str);
 

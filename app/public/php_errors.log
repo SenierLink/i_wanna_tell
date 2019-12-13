@@ -8,3 +8,48 @@ Stack trace:
 #0 D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php(45): IWT\app\MessageCon->addMessage()
 #1 {main}
   thrown in D:\phpstudy_pro\WWW\i_wanna_tell\app\MessageCon.php on line 59
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP Notice:  Undefined index: create_time in D:\phpstudy_pro\WWW\i_wanna_tell\framework\Message.php on line 41
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP Stack trace:
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP   1. {main}() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:0
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP   2. IWT\app\MessageCon->addMessage() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:45
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP   3. IWT\framework\Message->__construct() D:\phpstudy_pro\WWW\i_wanna_tell\app\MessageCon.php:62
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP Notice:  Undefined index: agree_num in D:\phpstudy_pro\WWW\i_wanna_tell\framework\Message.php on line 42
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP Stack trace:
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP   1. {main}() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:0
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP   2. IWT\app\MessageCon->addMessage() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:45
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP   3. IWT\framework\Message->__construct() D:\phpstudy_pro\WWW\i_wanna_tell\app\MessageCon.php:62
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP Notice:  Undefined index: browse_num in D:\phpstudy_pro\WWW\i_wanna_tell\framework\Message.php on line 43
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP Stack trace:
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP   1. {main}() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:0
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP   2. IWT\app\MessageCon->addMessage() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:45
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP   3. IWT\framework\Message->__construct() D:\phpstudy_pro\WWW\i_wanna_tell\app\MessageCon.php:62
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP Notice:  Undefined index: id in D:\phpstudy_pro\WWW\i_wanna_tell\framework\Message.php on line 45
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP Stack trace:
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP   1. {main}() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:0
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP   2. IWT\app\MessageCon->addMessage() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:45
+[13-Dec-2019 16:36:45 Asia/Shanghai] PHP   3. IWT\framework\Message->__construct() D:\phpstudy_pro\WWW\i_wanna_tell\app\MessageCon.php:62
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP Notice:  Undefined offset: 5 in D:\phpstudy_pro\WWW\i_wanna_tell\framework\Message.php on line 42
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP Stack trace:
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP   1. {main}() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:0
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP   2. IWT\app\MessageCon->addMessage() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:45
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP   3. IWT\framework\Message->__construct() D:\phpstudy_pro\WWW\i_wanna_tell\app\MessageCon.php:62
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP Notice:  Undefined index: create_time in D:\phpstudy_pro\WWW\i_wanna_tell\framework\Message.php on line 46
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP Stack trace:
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP   1. {main}() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:0
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP   2. IWT\app\MessageCon->addMessage() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:45
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP   3. IWT\framework\Message->__construct() D:\phpstudy_pro\WWW\i_wanna_tell\app\MessageCon.php:62
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP Notice:  Undefined index: agree_num in D:\phpstudy_pro\WWW\i_wanna_tell\framework\Message.php on line 47
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP Stack trace:
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP   1. {main}() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:0
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP   2. IWT\app\MessageCon->addMessage() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:45
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP   3. IWT\framework\Message->__construct() D:\phpstudy_pro\WWW\i_wanna_tell\app\MessageCon.php:62
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP Notice:  Undefined index: browse_num in D:\phpstudy_pro\WWW\i_wanna_tell\framework\Message.php on line 48
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP Stack trace:
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP   1. {main}() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:0
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP   2. IWT\app\MessageCon->addMessage() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:45
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP   3. IWT\framework\Message->__construct() D:\phpstudy_pro\WWW\i_wanna_tell\app\MessageCon.php:62
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP Notice:  Undefined index: id in D:\phpstudy_pro\WWW\i_wanna_tell\framework\Message.php on line 50
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP Stack trace:
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP   1. {main}() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:0
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP   2. IWT\app\MessageCon->addMessage() D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php:45
+[13-Dec-2019 16:41:03 Asia/Shanghai] PHP   3. IWT\framework\Message->__construct() D:\phpstudy_pro\WWW\i_wanna_tell\app\MessageCon.php:62
