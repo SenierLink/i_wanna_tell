@@ -2,9 +2,8 @@
 
 namespace IWT\app;
 
-use IWT\framework\Messages;
-use IWT\framework\Message;
 use IWT\framework\Module;
+use IWT\framework\Message;
 use \PDO;
 
 
@@ -13,7 +12,7 @@ use \PDO;
  *
  *
  */
-class MessageModule
+class MessageModule extends Module
 {
     /** @var null */
     private $dbname = null;
