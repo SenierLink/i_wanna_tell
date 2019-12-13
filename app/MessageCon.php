@@ -47,6 +47,7 @@ class MessageCon extends Controller
     }
 
     /**
+     * 将post传来的message，储存到数据库中。
      * @param String
      */
     public function addMessage(){
@@ -66,9 +67,6 @@ class MessageCon extends Controller
 
         header("content-type", "application/json");
         echo "$is_suc";
-
-
-
     }
 
 }
