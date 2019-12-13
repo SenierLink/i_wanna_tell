@@ -4,7 +4,7 @@ api/message/add
 
 # url:
 
-http::/i\_wanna\_tell/app/pulic/index.php/message/add
+http::/i\_wanna\_tell/app/pulic/api.php/message/add
 
 # method:
 
@@ -94,15 +94,3 @@ json后的数组
 </body>
 </html>
 ```
-
-
-
-
-
-
-
-
-
-
-
-
