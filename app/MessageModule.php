@@ -51,7 +51,7 @@ class MessageModule
         $sql = "INSERT INTO message (title, message_kind, content, author_id) VALUES (:title, :message_kind, :content, :author_id)";
         try {
             $sth = $this->myPDO->prepare($sql);
-            $is_success =  $sth->execute(array(':title' => $message->title, ':message_kind' => $message->message_kind, ':content' => $message->content, ':author_id' => $message->author_id,));
+            $is_success =  $sth->execute(array(':title' => $message->init_arr['title'], ':message_kind' => $message->init_arr['message_kind'], ':content' => $message->init_arr['content'], ':author_id' => $message->init_arr['author_id']));
             return $is_success;
         } catch (Exception $e) {
             return false;

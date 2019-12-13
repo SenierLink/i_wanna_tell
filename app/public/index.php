@@ -8,7 +8,7 @@ require "../../vendor/autoload.php";
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/i_wanna_tell/app/public/index.php/message[/{messageid:d+}]','IWT\app\MessageCon@queryAllMessages');
     $r->addRoute('GET', '/i_wanna_tell/app/public/index.php/message/add/{name}','IWT\app\MessageCon@addMessage');
-
+    $r->addRoute('POST', '/i_wanna_tell/app/public/index.php/message/add', 'IWT\app\MessageCon@addMessage');
 });
 
 
@@ -22,10 +22,11 @@ if (false !== $pos = strpos($uri, '?')) {
 }
 $uri = rawurldecode($uri);
 
+
+
 $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
 switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::NOT_FOUND:
-        echo '404';
         break;
     case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
         $allowedMethods = $routeInfo[1];
@@ -34,6 +35,11 @@ switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::FOUND:
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
+
+//        echo '404';
+
+
+
 
         list($class, $method) = explode('@', $handler, 2);
         call_user_func_array(array(new $class, $method), $vars);

@@ -1,0 +1,6 @@
+[13-Dec-2019 12:48:44 Asia/Shanghai] PHP Notice:  Undefined index: HTTP_RAW_POST_DATA in D:\phpstudy_pro\WWW\i_wanna_tell\app\test\testPOST.php on line 5
+[13-Dec-2019 12:48:44 Asia/Shanghai] PHP Stack trace:
+[13-Dec-2019 12:48:44 Asia/Shanghai] PHP   1. {main}() D:\phpstudy_pro\WWW\i_wanna_tell\app\test\testPOST.php:0
+[13-Dec-2019 16:42:30 Asia/Shanghai] PHP Notice:  Undefined offset: 0 in D:\phpstudy_pro\WWW\i_wanna_tell\app\test\arrayTestTemp.php on line 5
+[13-Dec-2019 16:42:30 Asia/Shanghai] PHP Stack trace:
+[13-Dec-2019 16:42:30 Asia/Shanghai] PHP   1. {main}() D:\phpstudy_pro\WWW\i_wanna_tell\app\test\arrayTestTemp.php:0
