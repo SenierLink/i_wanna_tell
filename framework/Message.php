@@ -18,7 +18,7 @@ class Message
      * 是需要这样的，方便MessageModule的insert书写。
      */
 
-    private $init_arr = [
+    public $init_arr = [
         'title' => null,
         'content' => null,
         'message_kind' => null,
@@ -40,8 +40,6 @@ class Message
                 $this->init_arr["$item"] = $value;
             }
         }
-        var_dump($this->init_arr);
-
     }
 
     public function toJson()
@@ -49,10 +47,16 @@ class Message
         return json_encode($this->init_arr);
     }
 
+    /**
+     * 存储message到DB
+     * @return boolean 是否添加成功
+     */
     public function store()
     {
         $mes_module = new MessageModule();
-        $mes_module->storeMessage($this);
+        return $mes_module->storeMessage($this);
+
+
     }
 
     public function toString()

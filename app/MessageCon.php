@@ -6,6 +6,7 @@ namespace IWT\app;
 
 use IWT\framework\Controller;
 use IWT\framework\Message;
+use mysql_xdevapi\Exception;
 
 class MessageCon extends Controller
 {
@@ -48,18 +49,25 @@ class MessageCon extends Controller
     /**
      * @param String
      */
-    public function addMessage($str = null){
-        $str = $this->testarr;
-
+    public function addMessage(){
 // 好像是跨文件的哦这个。
         $input = file_get_contents('php://input');
+        if (!$input)
+        {
+            throw new Exception("php://input is empty");
+        }
         $json = json_decode($input);
         // $json 是一个对象。需要变成数组才好。或者写个接口，让message构造函数的参数是一个对象，可以是数组，可以是对象。但是，php数组好像不是对象。问题不大。直接在这对象变数组把。
-        var_dump((array) $json);
 
-        $str = (array) $json;
+        $arr = (array) $json;
 
-        $mess = new Message($str);
+        $mess = new Message($arr);
+        $is_suc = $mess->store();
+
+        header("content-type", "application/json");
+        echo "$is_suc";
+
+
 
     }
 
