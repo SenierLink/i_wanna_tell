@@ -15,6 +15,20 @@ class MessageCon extends Controller
      * 这里需要重写，query方法返回的对象变成了数组。
      * @param $messageid
      */
+
+    public $testarr = array(
+        'title' => 'helloworld323213211',
+        'content' => '123123',
+        'message_kind' => 'tes',
+        'create_time' => '2019-11-30 20:17:39',
+        'agree_num' => '0',
+        'browse_num' => '0',
+        'author_id' => '1007',
+        'id' => null,
+    );
+
+
+
     public function queryAllMessages($messageid = null){
         $tempdb = new MessageModule();
 
@@ -27,13 +41,28 @@ class MessageCon extends Controller
         $tempdb = null;
         $temp = json_encode($temp);
         echo $temp;
+
+
     }
 
     /**
      * @param String
      */
-    public function addMessage($str){
+    public function addMessage($str = null){
+        $str = $this->testarr;
+
+// 好像是跨文件的哦这个。
+        $input = file_get_contents('php://input');
+        var_dump($input);
+        $json = json_decode($input);
+        var_dump($json);
+        // $json 是一个对象。需要变成数组才好。或者写个接口，让message构造函数的参数是一个对象，可以是数组，可以是对象。但是，php数组好像不是对象。问题不大。直接在这对象变数组把。
+        print_r($json->title);
+
+        var_dump((array) $json);
+
         $mess = new Message($str);
+
     }
 
 }

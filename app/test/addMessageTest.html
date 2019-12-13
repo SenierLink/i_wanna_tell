@@ -21,7 +21,9 @@
             content:"testcontent",
             author_id:"link"
         }
+
         post = JSON.stringify(post)
+
         request.onreadystatechange = function () {
             if (request.readyState == 4 && request.status >200 && request.status < 400){
                 console.log("success")
@@ -31,7 +33,10 @@
         }
 
         request.open('POST', 'http://localhost/i_wanna_tell/app/public/index.php/message/add');
+        // request.open('POST', './testPOST.php');
 
+
+        request.setRequestHeader("content-type", "application/json;charset=utf-8")
         request.send(post)
 
 

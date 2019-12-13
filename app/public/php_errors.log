@@ -1,0 +1,10 @@
+[13-Dec-2019 13:33:27 Asia/Shanghai] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in D:\phpstudy_pro\WWW\i_wanna_tell\app\MessageCon.php:59
+Stack trace:
+#0 D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php(45): IWT\app\MessageCon->addMessage()
+#1 {main}
+  thrown in D:\phpstudy_pro\WWW\i_wanna_tell\app\MessageCon.php on line 59
+[13-Dec-2019 13:33:45 Asia/Shanghai] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in D:\phpstudy_pro\WWW\i_wanna_tell\app\MessageCon.php:59
+Stack trace:
+#0 D:\phpstudy_pro\WWW\i_wanna_tell\app\public\index.php(45): IWT\app\MessageCon->addMessage()
+#1 {main}
+  thrown in D:\phpstudy_pro\WWW\i_wanna_tell\app\MessageCon.php on line 59
